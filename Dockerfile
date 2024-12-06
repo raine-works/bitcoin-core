@@ -19,7 +19,6 @@ RUN mkdir -p /home/btc_core_user/.bitcoin /mnt/btc_core/btc_data \
     && echo "discover=1" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "proxy=127.0.0.1:9050" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "bind=0.0.0.0" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
-    && echo "rpcbind=0.0.0.0" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "torcontrol=127.0.0.1:9051" >> /home/btc_core_user/.bitcoin/bitcoin.conf
 
 # Configure Tor Hidden Service

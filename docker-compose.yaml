@@ -2,6 +2,7 @@ services:
   bitcoin-core:
     container_name: bitcoin-core
     restart: unless-stopped
+    pull_policy: always
     build:
       context: .
       dockerfile: Dockerfile

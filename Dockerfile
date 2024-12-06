@@ -24,4 +24,5 @@ RUN chown -R btc_core_user:btc_core_group /mnt/btc_core
 
 EXPOSE 8333
 USER btc_core_user
+CMD [ "bitcoind" ]
 LABEL org.opencontainers.image.source="https://github.com/raine-works/bitcoin-core"

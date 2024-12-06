@@ -61,7 +61,7 @@ If you prefer not to use Docker Compose, you can pull the Docker image and run i
 Download the prebuilt Docker image from GitHub Container Registry:
 
 ```bash
-docker pull ghcr.io/raine-works/bitcoin-core:27.0
+docker pull ghcr.io/raine-works/bitcoin-core:latest
 ```
 
 This command ensures you have the latest version of the image available.
@@ -71,7 +71,7 @@ This command ensures you have the latest version of the image available.
 Run the Docker container with the following command:
 
 ```bash
-docker run -p 8333:8333 -v /mnt/btc_core:/mnt/btc_core --name btc-core ghcr.io/raine-works/bitcoin-core:27.0
+docker run -p 8333:8333 -v /mnt/btc_core:/mnt/btc_core --name btc-core ghcr.io/raine-works/bitcoin-core:latest
 ```
 
 Explanation of the Options:

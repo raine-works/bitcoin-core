@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ghcr.io/raine-works/bitcoin-core:27.0
+    image: ghcr.io/raine-works/bitcoin-core:latest
     command: bitcoind
     ports:
       - 8333:8333

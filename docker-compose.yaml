@@ -1,0 +1,22 @@
+services:
+  bitcoin-core:
+    container_name: bitcoin-core
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/raine-works/bitcoin-core:27.0
+    command: bitcoind
+    ports:
+      - 8333:8333
+    volumes:
+      - btc_core_data:/mnt/btc_core
+    networks:
+      - btc_core_network
+
+volumes:
+  btc_core_data:
+    driver: local
+
+networks:
+  btc_core_network:
+    driver: bridge

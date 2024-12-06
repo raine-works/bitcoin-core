@@ -25,5 +25,5 @@ RUN chown -R btc_core_user:btc_core_group /mnt/btc_core
 
 EXPOSE 8333
 USER btc_core_user
-CMD [ "bitcoind" ]
+ENTRYPOINT ["/bin/bash", "-c", "trap 'bitcoin-cli stop; sleep 5' SIGTERM; exec bitcoind"]
 LABEL org.opencontainers.image.source="https://github.com/raine-works/bitcoin-core"

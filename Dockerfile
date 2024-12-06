@@ -37,8 +37,9 @@ ENTRYPOINT ["/bin/bash", "-c", "\
     service tor start && \
     while [ ! -f /var/lib/tor/bitcoin-service/hostname ]; do sleep 1; done && \
     ONION_ADDR=$(cat /var/lib/tor/bitcoin-service/hostname) && \
+    PUBLIC_IP=$(dig +short myip.opendns.com @resolver1.opendns.com) && \
     echo \"externalip=$ONION_ADDR\" >> /home/btc_core_user/.bitcoin/bitcoin.conf && \
-    echo \"externalip=<YOUR_PUBLIC_IP>\" >> /home/btc_core_user/.bitcoin/bitcoin.conf && \
+    echo \"externalip=$PUBLIC_IP\" >> /home/btc_core_user/.bitcoin/bitcoin.conf && \
     trap 'bitcoin-cli stop; sleep 5' SIGTERM; exec bitcoind -datadir=/mnt/btc_core/btc_data \
 "]
 LABEL org.opencontainers.image.source="https://github.com/raine-works/bitcoin-core"

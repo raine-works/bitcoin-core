@@ -16,6 +16,7 @@ RUN mkdir ./.bitcoin
 RUN mkdir /mnt/btc_core/btc_data
 RUN cp /mnt/btc_core/bitcoin-27.0/bitcoin.conf ./.bitcoin/
 RUN sed -i 's/#datadir=<dir>/datadir=\/mnt\/btc_core\/btc_data/' ./.bitcoin/bitcoin.conf
+RUN sed -i 's/#listen=1/listen=1' ./.bitcoin/bitcoin.conf
 
 RUN groupadd -g 1001 btc_core_group
 RUN useradd -u 1001 -g btc_core_group -s /bin/bash -m btc_core_user

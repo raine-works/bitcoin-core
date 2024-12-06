@@ -1,6 +1,7 @@
 services:
   bitcoin-core:
     container_name: bitcoin-core
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile

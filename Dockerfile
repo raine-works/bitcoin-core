@@ -14,7 +14,9 @@ RUN wget https://bitcoin.org/bin/bitcoin-core-27.0/bitcoin-27.0-x86_64-linux-gnu
 # Prepare Bitcoin Core data directories and configuration
 RUN mkdir -p /home/btc_core_user/.bitcoin /mnt/btc_core/btc_data \
     && echo "datadir=/mnt/btc_core/btc_data" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
+    && echo "maxconnections=100" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "listen=1" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
+    && echo "discover=1" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "proxy=127.0.0.1:9050" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "torcontrol=127.0.0.1:9051" >> /home/btc_core_user/.bitcoin/bitcoin.conf
 

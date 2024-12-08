@@ -7,17 +7,13 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ghcr.io/raine-works/bitcoin-core:latest
+    command: bitcoind
     ports:
       - 8333:8333
     volumes:
-      - btc_core_data:/mnt/btc_core
+      - /mnt/btc_core:/mnt/btc_core
     networks:
       - btc_core_network
-    command: bitcoind
-
-volumes:
-  btc_core_data:
-    driver: local
 
 networks:
   btc_core_network:

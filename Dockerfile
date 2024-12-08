@@ -21,7 +21,7 @@ RUN mkdir -p /home/btc_core_user/.bitcoin /mnt/btc_core/btc_data \
     && echo "datadir=/mnt/btc_core/btc_data" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "maxconnections=100" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "onion=127.0.0.1:9050" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
-    && echo "listen=1" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
+    && echo "listen=0:8333" >> /home/btc_core_user/.bitcoin/bitcoin.conf \
     && echo "discover=1" >> /home/btc_core_user/.bitcoin/bitcoin.conf
 
 # Configure Tor Hidden Service
@@ -37,5 +37,5 @@ EXPOSE 8333
 # Run Bitcoin Core and Tor
 WORKDIR /home/btc_core_user
 USER btc_core_user
-ENTRYPOINT ["/bin/bash", "-c", "trap 'bitcoin-cli stop; sleep 5' SIGTERM && bitcoind"]
+ENTRYPOINT ["/bin/bash", "-c"]
 LABEL org.opencontainers.image.source="https://github.com/raine-works/bitcoin-core"

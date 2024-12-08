@@ -11,7 +11,7 @@ services:
     ports:
       - 8333:8333
     volumes:
-      - /mnt/btc_core:/mnt/btc_core
+      - /mnt/btc_core/btc_data:/mnt/btc_core/btc_data
     networks:
       - btc_core_network
 

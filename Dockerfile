@@ -37,5 +37,4 @@ EXPOSE 8333
 # Run Bitcoin Core and Tor
 WORKDIR /home/btc_core_user
 USER btc_core_user
-ENTRYPOINT ["/bin/bash", "-c"]
 LABEL org.opencontainers.image.source="https://github.com/raine-works/bitcoin-core"

@@ -13,7 +13,7 @@ services:
       - btc_core_data:/mnt/btc_core
     networks:
       - btc_core_network
-    command: trap 'bitcoin-cli stop; sleep 5' SIGTERM && bitcoind
+    command: bitcoind
 
 volumes:
   btc_core_data:

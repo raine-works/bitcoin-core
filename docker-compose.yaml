@@ -17,7 +17,9 @@ services:
 
 volumes:
   btc_core_data:
+    name: btc-core-data
     driver: local
+    external: false
 
 networks:
   btc_core_network:

@@ -7,13 +7,17 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ghcr.io/raine-works/bitcoin-core:latest
-    command: bitcoind
+    command: /bin/bash -c "trap 'bitcoin-cli stop; sleep 5' SIGTERM && bitcoind"
     ports:
       - 8333:8333
     volumes:
-      - /mnt/btc_core/btc_data:/mnt/btc_core/btc_data
+      - btc_core_data:/mnt/btc_core
     networks:
       - btc_core_network
+
+volumes:
+  btc_core_data:
+    driver: local
 
 networks:
   btc_core_network:
